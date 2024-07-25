@@ -36,7 +36,8 @@ $this->on(
             */
 
             'POST' => function ($params, $app) {
-                $saveToModel = $config['commenter']['model'];
+
+                $saveToModel = $this['commenter']['model'];
 
                 $model = $app->module('content')->model($saveToModel);
                 $data  = $app->param('data');
@@ -53,7 +54,7 @@ $this->on(
                     || !isset($data['message'])  
                     || $data['message'] == ""  
                     || !isset($data['parentId'])
-                    || ($config['commenter']['requireEmail'] && !isset($data['email']))
+                    || ($this['commenter']['requireEmail'] && !isset($data['email']))
                 ) {
                     $app->response->status = 412;
                     return ['error' => 'Comment data is missing or incomplete'];
@@ -68,7 +69,7 @@ $this->on(
 
                 $default = array_merge(
                     $app->module('content')->getDefaultModelItem('comments'), [
-                        '_state' => $config['commenter']['publishByDefault'] ? 1 : 0,
+                        '_state' => $this['commenter']['publishByDefault'] ? 1 : 0,
                         'created' => time(),
                         'reviewed' => false
                     ]
@@ -86,7 +87,7 @@ $this->on(
 
                 $item = $app->module('content')->saveItem($saveToModel, $data, ['user' => $app->helper('auth')->getUser()]);
             
-                if ($config['commenter']['email'] != null) {
+                if ($this['commenter']['email'] != null) {
                     $emailBody = "{$data['username']}";
 
                     if (empty($data['email'])) {
@@ -95,13 +96,13 @@ $this->on(
                         $emailBody .= " ({$data['email']}) ";
                     }
                     
-                    $emailBody .= "wrote:\n{$data['message']}\n\nAccept/Delete: {$app->pathToUrl("/content/collection/item/{$saveToModel}/{$item['_id']}:", true)}";
+                    $emailBody .= "wrote:\n{$data['message']}\n\nAccept/Delete: {$this['commenter']['email']['commentManageUrl']}{$saveToModel}/{$item['_id']}";
                     
                     mail(
-                        $config['commenter']['email']['reviewer'], 
+                        $this['commenter']['email']['reviewer'], 
                         'New comment', 
                         $emailBody, 
-                        array("From" => $config['commenter']['email']['from'])
+                        array("From" => $this['commenter']['email']['from'])
                     );
                 }
 
