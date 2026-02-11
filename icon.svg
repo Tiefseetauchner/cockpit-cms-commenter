@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 48 48"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   sodipodi:docname="icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="4.3604918"
+     inkscape:cx="-27.405165"
+     inkscape:cy="33.25313"
+     inkscape:window-width="2560"
+     inkscape:window-height="1370"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,12.555923,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <linearGradient
+       id="swatch1"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop1" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+       d="M 3.9628906,5.15625 A 3.2425692,3.2425692 0 0 0 0.72070312,8.3984375 V 48.021484 a 3.2425692,3.2425692 0 0 0 5.49023438,2.335938 l 6.7402345,-6.490235 h 18.53125 c 8.686684,0 15.796875,-7.112144 15.796875,-15.798828 V 8.3984375 A 3.2425692,3.2425692 0 0 0 44.037109,5.15625 Z m 3.2421875,6.484375 H 40.794922 v 16.427734 c 0,5.182206 -4.130295,9.314453 -9.3125,9.314453 H 11.644531 a 3.2425692,3.2425692 0 0 0 -2.2480466,0.90625 l -2.1914063,2.109375 z"
+       id="path1"
+       transform="matrix(1.030922,0,0,1.030922,-0.74212695,-4.8657699)" />
+    <path
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+       d="m 11.798828,12.705078 a 3.3425,3.3425 0 0 0 -3.3437499,3.34375 3.3425,3.3425 0 0 0 3.3437499,3.341797 h 24.625 a 3.3425,3.3425 0 0 0 3.34375,-3.341797 3.3425,3.3425 0 0 0 -3.34375,-3.34375 z"
+       id="path2" />
+    <path
+       style="baseline-shift:baseline;display:inline;overflow:visible;vector-effect:none;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke;enable-background:accumulate;stop-color:#000000;stop-opacity:1;opacity:1"
+       d="M 12.490234,21.314453 A 3.3425,3.3425 0 0 0 9.1464844,24.658203 3.3425,3.3425 0 0 0 12.490234,28 h 10.94336 a 3.3425,3.3425 0 0 0 3.341797,-3.341797 3.3425,3.3425 0 0 0 -3.341797,-3.34375 z"
+       id="path2-0" />
+  </g>
+</svg>

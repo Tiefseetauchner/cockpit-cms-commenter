@@ -7,7 +7,7 @@
     <vue-view>
 
         <template>
-
+            Test
         </template>
 
         <script type="module">
