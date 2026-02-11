@@ -38,7 +38,7 @@ You have to adjust the configuration if you want to receive an email every time 
 
 config.php:
 
-```
+```php
 <?php
 
 return [
