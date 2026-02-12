@@ -7,7 +7,7 @@
   <vue-view>
 
     <template>
-      <comment-model-comments model="<?php echo $this['commenter']['model'] ?>"></comment-model-comments>
+      <comment-model-comments></comment-model-comments>
     </template>
 
     <script type="module">
@@ -31,9 +31,15 @@
 <kiss-navlist>
   <ul>
     <li>
-      <a class="kiss-link-muted kiss-flex kiss-flex-middle kiss-text-bold" href="<?php echo $this->route('/commenter') ?>">
+      <a class="kiss-link-muted kiss-flex kiss-flex-middle kiss-text-bold" href="<?php echo $this->route('/comments') ?>">
         <kiss-svg class="kiss-margin-small-right" src="<?php echo $this->base('commenter:icon.svg') ?>" width="20" height="20"><canvas width="20" height="20"></canvas></kiss-svg>
         <?php echo t('Overview') ?>
+      </a>
+    </li>
+    <li>
+      <a class="kiss-link-muted kiss-flex kiss-flex-middle" href="<?php echo $this->route('/comments/settings') ?>">
+        <icon class="kiss-margin-small-right">settings</icon>
+        <?php echo t('Settings') ?>
       </a>
     </li>
   </ul>

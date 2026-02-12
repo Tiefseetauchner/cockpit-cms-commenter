@@ -20,6 +20,11 @@ $this->on(
 $this->on(
     'app.permissions.collect', function ($permissions) {
 
+        $permissions['Commenter'] = [
+            'commenter/view' => 'View comments',
+            'commenter/manage' => 'Manage comment models'
+        ];
+
         $permissions['Content'] = [
         'component' => 'ContentModelSettings',
         'src' => 'content:assets/vue-components/content-model-permissions.js',

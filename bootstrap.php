@@ -4,7 +4,8 @@
 // this is an awful hack and I hate it. Please figure out how to correctly extend the config.
 $defaultConfig = [
     'commenter' => [
-        'model' => 'comments',
+        'modelPrefix' => 'comments',
+        'modelGroup' => 'Comments',
         'requireEmail' => false,
         'publishByDefault' => true,
         'email' => null,

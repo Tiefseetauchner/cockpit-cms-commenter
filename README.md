@@ -17,7 +17,7 @@ This addon provides an API at /api/content/comments with the following specifica
           schema:
             properties:
               data:
-                properties: { username: { type: string }, email: { type: string }, message: { type: string }, parentId: { type: string } }
+                properties: { username: { type: string }, email: { type: string }, message: { type: string }, parentId: { type: string }, parentModel: { type: string } }
                 type: object
             type: object
     responses:
@@ -53,13 +53,9 @@ return [
 ```
 
 Other configuration includes:
-- `model`: Name of the model used, should have the following fields (you have to set that up yourself):
-  - username - string
-  - message - string (multiline)
-  - parent - model link
-  - email - string
-  - reviewed - bool
+- `modelPrefix`: Prefix for auto-created comment models (default `comments_`)
+- `modelGroup`: Group name for auto-created comment models (default `Comments`)
 - `requireEmail`: requires email to be submitted
 - `publishByDefault`: publishes the model by default so you can write your own management interface if you wanted to. The field "reviewed" is set to false and can be used as an indicator
 
-Still very barebones but it might get more features like a gui at some point uwu
+Comment models are now created automatically from the Comments settings screen, and are linked to a parent content model.

@@ -15,11 +15,12 @@ $this->on(
             *         required=true,
             *         @OA\JsonContent(
             *             type="object",
-            *             @OA\Property(property="data",     type="object",
-            *                 @OA\Property(property="username", type="string"),
-            *                 @OA\Property(property="email",    type="string"),
-            *                 @OA\Property(property="message",  type="string"),
-            *                 @OA\Property(property="parentId", type="string")
+            *             @OA\Property(property="data", type="object",
+            *                 @OA\Property(property="username",    type="string"),
+            *                 @OA\Property(property="email",       type="string"),
+            *                 @OA\Property(property="message",     type="string"),
+            *                 @OA\Property(property="parentId",    type="string"),
+            *                 @OA\Property(property="parentModel", type="string")
             *             )
             *         )
             *     ),
@@ -37,14 +38,30 @@ $this->on(
 
             'POST' => function ($params, $app) {
 
-                $saveToModel = $this['commenter']['model'];
-
-                $model = $app->module('content')->model($saveToModel);
                 $data  = $app->param('data');
+                $parentModel = $data['parentModel'] ?? null;
+
+                if (!$parentModel) {
+                    $app->response->status = 412;
+                    return ['error' => 'Parent model is missing'];
+                }
+
+                $models = $app->module('content')->models();
+                $saveToModel = null;
+
+                foreach ($models as $model) {
+                    $meta = $model['meta']['commenter'] ?? null;
+                    if ($meta && ($meta['parentModel'] ?? null) === $parentModel) {
+                        $saveToModel = $model['name'];
+                        break;
+                    }
+                }
+
+                $model = $saveToModel ? $app->module('content')->model($saveToModel) : null;
 
                 if (!$model) {
                     $app->response->status = 404;
-                    return ['error' => "Model <{$saveToModel}> not found"];
+                    return ['error' => "Comment model for <{$parentModel}> not found"];
                 }
 
                 if (!$data  
@@ -62,13 +79,14 @@ $this->on(
 
                 if (isset($data['parentId']) && $data['parentId']) {
                     $data['parent'] = [
+                        '_model' => $parentModel,
                         '_id' => $data['parentId'],
                     ];
                     unset($data['parentId']);
                 }
 
                 $default = array_merge(
-                    $app->module('content')->getDefaultModelItem('comments'), [
+                    $app->module('content')->getDefaultModelItem($saveToModel), [
                         '_state' => $this['commenter']['publishByDefault'] ? 1 : 0,
                         'created' => time(),
                         'reviewed' => false
